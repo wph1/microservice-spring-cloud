@@ -1,0 +1,16 @@
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: password123
+#eureka注册中心服务地址
+server:
+  port: 8761
+#将此服务定义为eureka服务
+eureka:
+  client:
+    register-with-eureka: false #表示此服务只作为服务端使用（在集群环境下可作为）
+    fetch-registry: false
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka
