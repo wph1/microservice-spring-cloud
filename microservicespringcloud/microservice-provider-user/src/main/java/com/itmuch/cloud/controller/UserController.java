@@ -2,6 +2,8 @@ package com.itmuch.cloud.controller;
 
 import com.itmuch.cloud.entity.User;
 import com.itmuch.cloud.repository.UserRepository;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +15,8 @@ public class UserController {
   @Autowired
   private UserRepository userRepository;
 
-//  @Autowired
-//  private EurekaClient eurekaClient;
+  @Autowired
+  private EurekaClient eurekaClient;
 //
 //  @Autowired
 //  private DiscoveryClient discoveryClient;
@@ -24,11 +26,11 @@ public class UserController {
     return this.userRepository.findOne(id);
   }
 
-//  @GetMapping("/eureka-instance")
-//  public String serviceUrl() {
-//    InstanceInfo instance = this.eurekaClient.getNextServerFromEureka("MICROSERVICE-PROVIDER-USER", false);
-//    return instance.getHomePageUrl();
-//  }
+  @GetMapping("/eureka-instance")
+  public String serviceUrl() {//MICROSERVICE-PROVIDER-USER  是在eureka上面显示的服务名称信息
+    InstanceInfo instance = this.eurekaClient.getNextServerFromEureka("MICROSERVICE-PROVIDER-USER", false);
+    return instance.getHomePageUrl();//返回的信息：http://192.168.5.32:7900/
+  }
 //
 //  @GetMapping("/instance-info")
 //  public ServiceInstance showInfo() {
