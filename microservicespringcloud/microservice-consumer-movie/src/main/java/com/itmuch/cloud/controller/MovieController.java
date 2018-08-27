@@ -34,7 +34,7 @@ public class MovieController {
 
   /**
    * 测试自定义配置Ribbon客户端
-   * microservice-provider-user 服务使用的是我们自己配置的负载均衡规则，随机
+   * microservice-provider-user 服务使用的是我们自己配置的负载均衡规则，(随机)
    * microservice-provider-user2 服务使用的是Ribbon客户端默认的负载均衡规则（轮询）
    * @return
    */
