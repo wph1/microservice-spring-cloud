@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Configuration;
  *
  * 注意：这仅仅是一种方式，放到main方法加载的路径外边（所以这个对象只有在访问的时候，才会被创建放入到容器里面）
  * 另一种方式：放在main方法的扫描路径下，可以通过相应的配置，不让其覆盖所有的Ribbon客户端（）
+ *
+ * 还有一种方式就是通过配置文件（.propertise,高的版本才开始有的特性）
  */
 @Configuration
 public class TestConfiguration {
